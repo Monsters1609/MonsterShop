@@ -1,0 +1,61 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root{
+  width: 100%;
+  height: 100%;
+}
+
+:root{
+  --text1:white;
+  --text2:black;
+  --text3:greenyellow;
+  --text4:red;
+  --text5:skyblue;
+  --text6:#333;
+  --text7:#38a8e8;
+  --text8:#ccffff;
+  --text9:#ffcccc;
+  --text10:#e91e63;
+  --text11:#101010;
+  --colorDeco1:#333;
+  --colorDeco2:red;
+  --colorDeco3:skyblue;
+  --colorDeco4:aqua;
+  --colorDeco5:yellowgreen;
+  --colorDeco6:greenyellow;
+  --colorDeco7:white;
+  --colorDeco8:gray;
+  --colorDeco9:grey;
+  --colorDeco10:#ffcccc;
+  --colorDeco11:#ccffff;
+  --colorDeco12:black;
+  --colorDeco13:pink;
+  --colorDeco14:#38a8e8;
+  --colorDeco15:orange;
+  --colorDeco16:chocolate;
+  --colorDeco17:#e91e63;
+  --colorDeco18:linear-gradient( 35deg, #ccffff,#ffcccc);
+  --colorDeco19:rgba(255,255,255,.5);
+  --colorDeco20:#101010;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');

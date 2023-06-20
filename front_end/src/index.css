@@ -36,6 +36,7 @@ code {
   --text9:#ffcccc;
   --text10:#e91e63;
   --text11:#101010;
+  --text12:#9763f6;
   --colorDeco1:#333;
   --colorDeco2:red;
   --colorDeco3:skyblue;
@@ -56,6 +57,7 @@ code {
   --colorDeco18:linear-gradient( 35deg, #ccffff,#ffcccc);
   --colorDeco19:rgba(255,255,255,.5);
   --colorDeco20:#101010;
+  --colorDeco21:#9763f6;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');

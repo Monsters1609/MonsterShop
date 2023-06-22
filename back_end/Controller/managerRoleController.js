@@ -1,8 +1,8 @@
-const DB = require('../Config')
-class AccountManagerController {
+const DB = require('../Config');
+class ManagerRoleController {
     async Select(req,res,next){
-        const SqlSelect = 'SELECT * FROM account_manager';
-        const getAccountManager = new Promise((resolve, reject) => {
+        const SqlSelect = 'SELECT * FROM manager_role';
+        const getManagerRole = new Promise((resolve, reject) => {
             DB.query(SqlSelect, (err, result) => {
                 if(err) {
                     reject(err);
@@ -12,11 +12,11 @@ class AccountManagerController {
             })
         })
         try{
-            const dataGetAccountManager = await getAccountManager
+            const dataGetManagerRole = await getManagerRole
             return res.status(200).json({
                 status:200,
                 message: 'Select Successfully !!',
-                data:dataGetAccountManager,
+                data:dataGetManagerRole,
             })
         }
         catch(err){
@@ -29,12 +29,12 @@ class AccountManagerController {
         }
     }
     async Insert(req,res,next){
-        const SqlInsert = "INSERT INTO account_manager (PhoneNumber,Password,RoleName) VALUES (?, ?, ?)";
-        const PhoneNumber = req.body.PhoneNumber;
-        const Password = req.body.Password;
+        const SqlInsert = "INSERT INTO manager_role (RoleName, Describe_Role, Code_Role) VALUES (?, ?, ?)";
         const RoleName = req.body.RoleName;
-        const postAccountManager = new Promise((resolve, reject) => {
-            DB.query(SqlInsert,[PhoneNumber, Password, RoleName], (err, result) => {
+        const DescribeRole = req.body.DescribeRole;
+        const CodeRole = req.body.CodeRole;
+        const postManagerRole = new Promise((resolve, reject) => {
+            DB.query(SqlInsert,[RoleName, DescribeRole, CodeRole], (err, result) => {
                 if(err) {
                     reject(err);
                 }else{
@@ -43,11 +43,11 @@ class AccountManagerController {
             })
         })
         try{
-            const dataPostAccountManager = await postAccountManager
+            const dataPostManagerRole = await postManagerRole
             return res.status(200).json({
                 status:200,
                 message: 'Insert Successfully !!',
-                data:dataPostAccountManager,
+                data:dataPostManagerRole,
             })
         }
         catch(err){
@@ -60,10 +60,10 @@ class AccountManagerController {
         }
     }
     async Delete(req,res,next){
-        const SqlDelete = 'DELETE FROM account_manager WHERE account_manager.Id_Manager = ?';
-        const IdManager = req.params.IdManager;
-        const deleteAccountManager = new Promise((resolve, reject) => {
-            DB.query(SqlDelete,IdManager, (err, result) => {
+        const SqlDelete = 'DELETE FROM manager_role WHERE manager_role.Id_Role = ?';
+        const IdRole = req.params.IdRole;
+        const deleteManagerRole = new Promise((resolve, reject) => {
+            DB.query(SqlDelete,IdRole, (err, result) => {
                 if(err) {
                     reject(err);
                 }else{
@@ -72,11 +72,11 @@ class AccountManagerController {
             })
         })
         try{
-            const dataDeleteAccountManager = await deleteAccountManager
+            const dataDeleteManagerRole = await deleteManagerRole
             return res.status(200).json({
                 status:200,
                 message: 'Delete Successfully !!',
-                data:dataDeleteAccountManager,
+                data:dataDeleteManagerRole,
             })
         }
         catch(err){
@@ -89,13 +89,13 @@ class AccountManagerController {
         }
     }
     async Update(req,res,next){
-        const SqlUpdate = 'UPDATE account_manager SET PhoneNumber = ?, Password = ?, RoleName = ? WHERE account_manager.Id_Manager = ?'
-        const IdManager = req.params.IdManager;
-        const PhoneNumber = req.body.PhoneNumber;
-        const Password = req.body.Password;
+        const SqlUpdate = 'UPDATE manager_role SET RoleName = ?, Describe_Role = ?, Code_Role = ? WHERE manager_role.Id_Role = ?'
         const RoleName = req.body.RoleName;
-        const putAccountManager = new Promise((resolve, reject) => {
-            DB.query(SqlUpdate, [PhoneNumber, Password, RoleName, IdManager], (err, result) => {
+        const DescribeRole = req.body.DescribeRole;
+        const CodeRole = req.body.CodeRole;
+        const IdRole = req.params.IdRole;
+        const putManagerRole = new Promise((resolve, reject) => {
+            DB.query(SqlUpdate, [RoleName, DescribeRole, CodeRole, IdRole], (err, result) => {
                 if(err) {
                     reject(err)
                 }else{
@@ -104,11 +104,11 @@ class AccountManagerController {
             })
         })
         try{
-            const dataPutAccountManager = await putAccountManager
+            const dataPutManagerRole = await putManagerRole
             return res.status(200).json({
                 status:200,
                 message: 'Update Successfully !!',
-                data:dataPutAccountManager,
+                data:dataPutManagerRole,
             })
         }
         catch(err){
@@ -121,4 +121,4 @@ class AccountManagerController {
         }
     }
 }
-module.exports = new AccountManagerController;
+module.exports = new ManagerRoleController;

@@ -8,10 +8,12 @@ import {
     reducerTemporarySaveData
 } from "../Data/Store";
 
+const ProviderDataAll = createContext();
+const ProviderTemporarySave = createContext();
+const ProviderHandleChange = createContext();
+
 function ProviderApp({children}) {
-    const ProviderDataAll = createContext();
-    const ProviderTemporarySave = createContext()
-    const ProviderHandleChange = createContext();
+    
     const [dataAll, DataAll] = useReducer(reducerDataAll, initDataAll);
     const [temporarySaveData, TemporarySaveData] = useReducer(reducerTemporarySaveData, initTemporarySaveData);
     const [dataHandleChange, DataHandleChange] = useReducer(reducerHandleChange, initHandleChange);
@@ -24,5 +26,10 @@ function ProviderApp({children}) {
             </ProviderTemporarySave.Provider>
         </ProviderDataAll.Provider>
     )
-}
+};
+export {
+    ProviderDataAll,
+    ProviderTemporarySave,
+    ProviderHandleChange
+};
 export default ProviderApp;

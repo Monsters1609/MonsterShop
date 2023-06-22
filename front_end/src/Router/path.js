@@ -9,14 +9,15 @@ import {
     Manager,
     ManagerLogin,
     ManagerRegister,
+    ManagerSetting,
     Notification,
-    Setting,
     Shop,
     TableList,
     Update,
     UserDetail,
     UserLogin,
-    UserRegister
+    UserRegister,
+    UserSetting
 } from "../Pages/js"
 
 const publicRouter = [
@@ -24,7 +25,7 @@ const publicRouter = [
     {path:'/Cart',page:Cart,title:'Cart'},
     {path:'/Introduce',page:Introduce,title:'Introduce'},
     {path:'/Notification',page:Notification,title:'Notification'},
-    {path:'/Setting',page:Setting,title:'Setting'},
+    {path:'/UserSetting',page:UserSetting,title:'UserSetting'},
     {path:'/Shop',page:Shop,title:'Shop'},
     {path:'/UserDetail',page:UserDetail,title:'UserDetail'},
     {path:'/UserLogin',page:UserLogin,title:'UserLogin'},
@@ -38,7 +39,7 @@ const privateRouter = [
     {path:'/TableList',page:TableList,title:'TableList'},
     {path:'/Add',page:Add,title:'Add'},
     {path:'/Update',page:Update,title:'Update'},
-    {path:'/Setting',page:Setting,title:'Setting'},
+    {path:'/ManagerSetting',page:ManagerSetting,title:'ManagerSetting'},
     {path:'/ChartStatistical',page:ChartStatistical,title:'ChartStatistical'},
     {path:'/DoneTableList',page:DoneTableList,title:'DoneTableList'},
     {path:'*',page:Error,title:'Error'}

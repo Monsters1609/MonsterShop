@@ -33,7 +33,7 @@ const publicRouter = [
     {path:'*',page:Error,title:'Error'}
 ]
 const privateRouter = [
-    {path:'/Manager',page:Manager,title:'Manager'},
+    {path:'/',page:Manager,title:'Manager'},
     {path:'/ManagerLogin',page:ManagerLogin,title:'ManagerLogin'},
     {path:'/ManagerRegister',page:ManagerRegister,title:'ManagerRegister'},
     {path:'/TableList',page:TableList,title:'TableList'},

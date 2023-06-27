@@ -14,6 +14,7 @@ class ManagerAccountController {
         try{
             const dataGetManagerAccount = await getManagerAccount
             return res.status(200).json({
+                dataTableName:'Manager Account',
                 status:200,
                 message: 'Select Successfully !!',
                 data:dataGetManagerAccount,
@@ -22,6 +23,7 @@ class ManagerAccountController {
         catch(err){
             console.log(err);
             return res.status(404).json({
+                dataTableName:'Manager Account',
                 status:404,
                 errorMessage: 'Select Failure !!',
                 err:err,
@@ -45,6 +47,7 @@ class ManagerAccountController {
         try{
             const dataPostManagerAccount = await postManagerAccount
             return res.status(200).json({
+                dataTableName:'Manager Account',
                 status:200,
                 message: 'Insert Successfully !!',
                 data:dataPostManagerAccount,
@@ -53,6 +56,7 @@ class ManagerAccountController {
         catch(err){
             console.log(err);
             return res.status(404).json({
+                dataTableName:'Manager Account',
                 status:404,
                 errorMessage: 'Insert Failure !!',
                 err:err,
@@ -85,6 +89,7 @@ class ManagerAccountController {
             const dataDeleteManagerAccount = await deleteManagerAccount
             const dataDeleteManagerDetail = await deleteManagerDetail
             return res.status(200).json({
+                dataTableName:'Manager Account',
                 status:200,
                 message: 'Delete Successfully !!',
                 dataManagerAccount:dataDeleteManagerAccount,
@@ -94,6 +99,7 @@ class ManagerAccountController {
         catch(err){
             console.log(err);
             return res.status(404).json({
+                dataTableName:'Manager Account',
                 status:404,
                 errorMessage: 'Delete Failure !!',
                 err:err,
@@ -118,6 +124,7 @@ class ManagerAccountController {
         try{
             const dataPutManagerAccount = await putManagerAccount
             return res.status(200).json({
+                dataTableName:'Manager Account',
                 status:200,
                 message: 'Update Successfully !!',
                 data:dataPutManagerAccount,
@@ -126,6 +133,7 @@ class ManagerAccountController {
         catch(err){
             console.log(err);
             return res.status(404).json({
+                dataTableName:'Manager Account',
                 status:404,
                 errorMessage: 'Update Failure !!',
                 err:err,

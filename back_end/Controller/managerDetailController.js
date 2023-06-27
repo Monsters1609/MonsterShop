@@ -14,6 +14,7 @@ class ManagerDetailController {
         try{
             const dataGetManagerDetail = await getManagerDetail
             return res.status(200).json({
+                dataTableName:'Manager Detail',
                 status:200,
                 message: 'Select Successfully !!',
                 data:dataGetManagerDetail,
@@ -22,6 +23,7 @@ class ManagerDetailController {
         catch(err){
             console.log(err);
             return res.status(404).json({
+                dataTableName:'Manager Detail',
                 status:404,
                 errorMessage: 'Select Failure !!',
                 err:err,
@@ -48,6 +50,7 @@ class ManagerDetailController {
         try{
             const dataPostManagerDetail = await postManagerDetail
             return res.status(200).json({
+                dataTableName:'Manager Detail',
                 status:200,
                 message: 'Insert Successfully !!',
                 data:dataPostManagerDetail,
@@ -56,6 +59,7 @@ class ManagerDetailController {
         catch(err){
             console.log(err);
             return res.status(404).json({
+                dataTableName:'Manager Detail',
                 status:404,
                 errorMessage: 'Insert Failure !!',
                 err:err,
@@ -77,6 +81,7 @@ class ManagerDetailController {
     //     try{
     //         const dataDeleteManagerDetail = await deleteManagerDetail
     //         return res.status(200).json({
+    //             dataTableName:'Manager Detail',
     //             status:200,
     //             message: 'Delete Successfully !!',
     //             data:dataDeleteManagerDetail,
@@ -85,6 +90,7 @@ class ManagerDetailController {
     //     catch(err){
     //         console.log(err);
     //         return res.status(404).json({
+    //             dataTableName:'Manager Detail',
     //             status:404,
     //             errorMessage: 'Delete Failure !!',
     //             err:err,
@@ -114,6 +120,7 @@ class ManagerDetailController {
         try{
             const dataPutManagerDetail = await putManagerDetail
             return res.status(200).json({
+                dataTableName:'Manager Detail',
                 status:200,
                 message: 'Update Successfully !!',
                 data:dataPutManagerDetail,
@@ -122,6 +129,7 @@ class ManagerDetailController {
         catch(err){
             console.log(err);
             return res.status(404).json({
+                dataTableName:'Manager Detail',
                 status:404,
                 errorMessage: 'Update Failure !!',
                 err:err,

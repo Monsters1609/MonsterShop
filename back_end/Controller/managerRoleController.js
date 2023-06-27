@@ -14,6 +14,7 @@ class ManagerRoleController {
         try{
             const dataGetManagerRole = await getManagerRole
             return res.status(200).json({
+                dataTableName:'Manager Role',
                 status:200,
                 message: 'Select Successfully !!',
                 data:dataGetManagerRole,
@@ -22,6 +23,7 @@ class ManagerRoleController {
         catch(err){
             console.log(err);
             return res.status(404).json({
+                dataTableName:'Manager Role',
                 status:404,
                 errorMessage: 'Select Failure !!',
                 err:err,
@@ -45,6 +47,7 @@ class ManagerRoleController {
         try{
             const dataPostManagerRole = await postManagerRole
             return res.status(200).json({
+                dataTableName:'Manager Role',
                 status:200,
                 message: 'Insert Successfully !!',
                 data:dataPostManagerRole,
@@ -53,6 +56,7 @@ class ManagerRoleController {
         catch(err){
             console.log(err);
             return res.status(404).json({
+                dataTableName:'Manager Role',
                 status:404,
                 errorMessage: 'Insert Failure !!',
                 err:err,
@@ -74,6 +78,7 @@ class ManagerRoleController {
         try{
             const dataDeleteManagerRole = await deleteManagerRole
             return res.status(200).json({
+                dataTableName:'Manager Role',
                 status:200,
                 message: 'Delete Successfully !!',
                 data:dataDeleteManagerRole,
@@ -82,6 +87,7 @@ class ManagerRoleController {
         catch(err){
             console.log(err);
             return res.status(404).json({
+                dataTableName:'Manager Role',
                 status:404,
                 errorMessage: 'Delete Failure !!',
                 err:err,
@@ -106,6 +112,7 @@ class ManagerRoleController {
         try{
             const dataPutManagerRole = await putManagerRole
             return res.status(200).json({
+                dataTableName:'Manager Role',
                 status:200,
                 message: 'Update Successfully !!',
                 data:dataPutManagerRole,
@@ -114,6 +121,7 @@ class ManagerRoleController {
         catch(err){
             console.log(err);
             return res.status(404).json({
+                dataTableName:'Manager Role',
                 status:404,
                 errorMessage: 'Update Failure !!',
                 err:err,

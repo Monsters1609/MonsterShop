@@ -98,18 +98,17 @@ class ManagerDetailController {
     //     }
     // }
     async Update(req,res,next){
-        const SqlUpdate = 'UPDATE manager_detail SET PhoneNumber = ?, FullName = ?, DateOfBirth = ?, Gender = ?, Email = ?, Address = ?, Img_Manager = ? WHERE manager_detail.Id_ManagerDetail = ?'
+        const SqlUpdate = 'UPDATE manager_detail SET FullName = ?, DateOfBirth = ?, Gender = ?, Email = ?, Address = ?, Img_Manager = ? WHERE manager_detail.PhoneNumber = ?'
         const PhoneNumber = req.body.PhoneNumber;
         const FullName = req.body.FullName;
         const DateOfBirth = req.body.DateOfBirth;
         const Gender = req.body.Gender;
         const Email = req.body.Email;
         const Address = req.body.Address;
-        const ImgManager = req.body.ImgManager;
-        const IdManagerDetail = req.params.IdManagerDetail;
-        console.log(req.body);
+        const ImgManager = req.body.Img_Manager;
+        console.log('err',req.body);
         const putManagerDetail = new Promise((resolve, reject) => {
-            DB.query(SqlUpdate, [PhoneNumber, FullName, DateOfBirth, Gender, Email, Address, ImgManager, IdManagerDetail], (err, result) => {
+            DB.query(SqlUpdate, [FullName, DateOfBirth, Gender, Email, Address, ImgManager, PhoneNumber], (err, result) => {
                 if(err) {
                     reject(err)
                 }else{
@@ -127,7 +126,7 @@ class ManagerDetailController {
             })
         }
         catch(err){
-            console.log(err);
+            console.log('err',err);
             return res.status(404).json({
                 dataTableName:'Manager Detail',
                 status:404,

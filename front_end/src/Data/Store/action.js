@@ -12,7 +12,17 @@ const SET_DATEOFBIRTH = 'set_dateofbirth';
 const SEARCH_MANAGER = 'search_manager';
 const FIND_MANAGER_ACCOUNT = 'find_manager_account';
 const FIND_MANAGER_DETAIL = 'find_manager_Detail';
-
+const UPDATE_MANAGER_ACCOUNT = 'update_manager_account';
+const UPDATE_MANAGER_DETAIL = 'update_manager_detail';
+const NEW_SET_FULLNAME = 'new_set_fullname';
+const NEW_SET_GENDER = 'new_set_gender';
+const NEW_SET_ROLENAME = 'new_set_rolename';
+const NEW_SET_PASSWORD = 'new_set_password';
+const NEW_SET_ADDRESS = 'new_set_address';
+const NEW_SET_PHONENUMBER = 'new_set_phonenumber';
+const NEW_SET_EMAIL = 'new_set_email';
+const NEW_SET_DATEOFBIRTH = 'new_set_dateofbirth';
+const NEW_SET_IMG_MANAGER = 'new_set_img_manager';
 export {
     CREATE_MANAGER_ACCOUNT,
     CREATE_MANAGER_ROLE,
@@ -28,4 +38,15 @@ export {
     SEARCH_MANAGER,
     FIND_MANAGER_ACCOUNT,
     FIND_MANAGER_DETAIL,
+    UPDATE_MANAGER_ACCOUNT,
+    UPDATE_MANAGER_DETAIL,
+    NEW_SET_FULLNAME,
+    NEW_SET_GENDER,
+    NEW_SET_ROLENAME,
+    NEW_SET_PASSWORD,
+    NEW_SET_ADDRESS,
+    NEW_SET_PHONENUMBER,
+    NEW_SET_EMAIL,
+    NEW_SET_DATEOFBIRTH,
+    NEW_SET_IMG_MANAGER,
 }

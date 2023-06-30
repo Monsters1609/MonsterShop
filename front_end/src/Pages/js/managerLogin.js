@@ -1,8 +1,11 @@
 import clsx from 'clsx';
 import {useNavigate} from 'react-router-dom'
 import style from '../css/managerLogin.module.css';
+import { useContextDataAll } from '../../Hooks';
 
 function ManagerLogin() {
+    const [dataAll, DataAll] = useContextDataAll()
+    console.log(dataAll);
     const navigate = useNavigate()
     return(
         <div className={clsx(style.ManagerLogin)}>

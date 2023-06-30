@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import style from '../css/managerRegister.module.css';
-import { useContextHandleChange } from '../../Hooks';
+import { useContextHandleChange} from '../../Hooks';
 import { addManagerAccount } from '../../Handle';
 import { 
     setAddress, 
@@ -12,15 +12,22 @@ import {
     setPhoneNumber, 
     setRoleName 
 } from '../../Data/Store';
+import { useEffect } from 'react';
 
 function ManagerRegister() {
-    const [dataHandleChange, DataHandleChange] = useContextHandleChange()
+    const [dataHandleChange, DataHandleChange] = useContextHandleChange();
+    const localStorageManagerAccount = JSON.parse(localStorage.getItem('ManagerAccount'))
+    useEffect(()=>{
+        
+        console.log(localStorageManagerAccount[0]);
+    },[])
     return(
         <div className={clsx(style.ManagerRegister)}>
             <form>
                 <h1>Register</h1>
                 <label htmlFor="PhoneNumber">PhoneNumber</label>
                 <input type="text" name="PhoneNumber" value={dataHandleChange.phonenumber} onChange={(e)=>DataHandleChange(setPhoneNumber(e.target.value))}/><br/>
+                <p className={clsx(style.NotificationLoop,'NotificationLoop')}></p>
                 <label htmlFor="Password">Password</label>
                 <input type="text" name="Password" value={dataHandleChange.password} onChange={(e)=>DataHandleChange(setPassword(e.target.value))}/><br/>
                 <label htmlFor="RoleName">RoleName</label>
@@ -43,7 +50,7 @@ function ManagerRegister() {
                 <input type="text" name="Email" value={dataHandleChange.email} onChange={(e)=>DataHandleChange(setEmail(e.target.value))}/><br/>
                 <label htmlFor="Address">Address</label>
                 <input type="text" name="Address" value={dataHandleChange.address} onChange={(e)=>DataHandleChange(setAddress(e.target.value))}/><br/>
-                <button type="submit" onClick={()=>addManagerAccount(dataHandleChange)}>Submit</button>
+                <button type="submit" onClick={()=>addManagerAccount(dataHandleChange,localStorageManagerAccount)}>Submit</button>
             </form>
         </div>
     )

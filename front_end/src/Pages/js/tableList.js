@@ -1,29 +1,35 @@
 import clsx from 'clsx';
 import style from '../css/tableList.module.css';
 import { useEffect } from 'react';
+import {useNavigate} from 'react-router-dom'
 import { request } from '../../Data/API';
 import { useContextDataAll, useContextHandleChange, useContextTemporarySave } from '../../Hooks';
-import { addManagerAccount, addManagerDetail, findManagerAccountfunc, findManagerDetailfunc, searchManager } from '../../Data/Store';
-import { deleteManagerAccount, handleSearchManager } from '../../Handle';
+import { addManagerAccount, addManagerDetail, findManagerAccountfunc, findManagerDetailfunc, searchManager, updateManagerAccount, updateManagerDetail} from '../../Data/Store';
+import { deleteManagerAccount, handleSearchManager, handleSendDataManagerAccount, handleSendDataManagerDetail} from '../../Handle';
 
 function TableList() {
     const [dataHandleChange, DataHandleChange] = useContextHandleChange();
     const [dataAll, DataAll] = useContextDataAll();
-    const [temporarySaveData, TemporarySaveData] = useContextTemporarySave()
+    const [temporarySaveData, TemporarySaveData] = useContextTemporarySave();
+    const navigate = useNavigate(); //đây là hook của react-router-dom : dùng để điều hướng cho các button,....
     useEffect(() => {
         request.get('/ManagerAccount/getManagerAccount')
-        .then(data => DataAll(addManagerAccount(data.data.data)))
+        .then(data => {
+            const jsonStrManagerAccount = JSON.stringify(data.data.data)
+            localStorage.setItem('ManagerAccount',jsonStrManagerAccount)
+            DataAll(addManagerAccount(data.data.data))
+        })
         .catch(err=>console.log(err))
         request.get('/ManagerDetail/getManagerDetail')
         .then(data=> DataAll(addManagerDetail(data.data.data)))
         .catch(err=>console.log(err))
     },[]);
-    console.log(temporarySaveData);
+    console.log(dataAll);
     return(
         <div className={clsx(style.TableList)} style={{textAlign:'center'}}>
             <div className={clsx(style.BoxSearch)}>
                 <form>
-                    <input type="search" name="" value={dataHandleChange.searchManager} placeholder='... Search ...' style={{width:'250px'}} onChange={(e)=>{DataHandleChange(searchManager(e.target.value))}}/>
+                    <input type="search" name="" value={dataHandleChange.searchManager} placeholder='... Search Phone Number ...' style={{width:'250px'}} onChange={(e)=>{DataHandleChange(searchManager(e.target.value))}}/>
                     <button type="button" onClick={()=>handleSearchManager(dataHandleChange,dataAll,TemporarySaveData,findManagerAccountfunc,findManagerDetailfunc)}>Search</button>
                 </form>
                 <div>
@@ -80,10 +86,10 @@ function TableList() {
                                 <td>{value.Password}</td>
                                 <td>{value.RoleName}</td>
                                 <td>
-                                    <button type="button" onClick={()=>deleteManagerAccount(value.PhoneNumber)}>Delete</button>
+                                    <button type="submit" onClick={()=>deleteManagerAccount(value.PhoneNumber)}>Delete</button>
                                 </td>
                                 <td>
-                                    <button type="button" onClick={()=>{}}>Update</button>
+                                    <button type="submit" onClick={()=>handleSendDataManagerAccount(value,navigate,TemporarySaveData,updateManagerAccount)}>Update</button>
                                 </td>
                             </tr>
                         )
@@ -104,6 +110,7 @@ function TableList() {
                     <th>PhoneNumber</th>
                     <th>Address</th>
                     <th>Img_Manager</th>
+                    <th>Update</th>
                 </tr>
             </thead>
             <tbody style={{overflowY:'scroll'}}>
@@ -120,10 +127,7 @@ function TableList() {
                             <td>{value.Address}</td>
                             <td><img src={value.Img_Manager!==null?value.Img_Manager:'https://as1.ftcdn.net/v2/jpg/03/46/83/96/1000_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg'} alt="" width={'50px'} height={'50px'}/></td>
                             <td>
-                                <button type="button" onClick={()=>{}}>Delete</button>
-                            </td>
-                            <td>
-                                <button type="button" onClick={()=>{}}>Update</button>
+                                <button type="submit" onClick={()=>handleSendDataManagerDetail(TemporarySaveData,value,updateManagerDetail,navigate)}>Update</button>
                             </td>
                         </tr>
                     )

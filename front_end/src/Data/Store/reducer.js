@@ -4,6 +4,15 @@ import {
     CREATE_MANAGER_ROLE,
     FIND_MANAGER_ACCOUNT,
     FIND_MANAGER_DETAIL,
+    NEW_SET_ADDRESS,
+    NEW_SET_DATEOFBIRTH,
+    NEW_SET_EMAIL,
+    NEW_SET_FULLNAME,
+    NEW_SET_GENDER,
+    NEW_SET_IMG_MANAGER,
+    NEW_SET_PASSWORD,
+    NEW_SET_PHONENUMBER,
+    NEW_SET_ROLENAME,
     SEARCH_MANAGER,
     SET_ADDRESS,
     SET_DATEOFBIRTH,
@@ -12,7 +21,9 @@ import {
     SET_GENDER,
     SET_PASSWORD,
     SET_PHONENUMBER,
-    SET_ROLENAME, 
+    SET_ROLENAME,
+    UPDATE_MANAGER_ACCOUNT,
+    UPDATE_MANAGER_DETAIL, 
 } from "./action";
 
 const initDataAll = {
@@ -24,6 +35,8 @@ const initDataAll = {
 const initTemporarySaveData = {
     findManagerAccount:[],
     findManagerDetail:[],
+    newManagerDetail:[],
+    newManagerAccount:[],
 }
 
 const initHandleChange = {
@@ -36,6 +49,15 @@ const initHandleChange = {
     password:'',
     rolename:'',
     searchManager:'',
+    newFullname:'',
+    newDateofbirth:'',
+    newGender:'',
+    newEmail:'',
+    newPhonenumber:'',
+    newAddress:'',
+    newPassword:'',
+    newRolename:'',
+    newImgManager:'',
 }
 
 const reducerDataAll = (state,action) => {
@@ -71,6 +93,16 @@ const reducerTemporarySaveData = (state,action) => {
             return{
                 ...state,
                 findManagerDetail:[action.value]
+            }
+        case UPDATE_MANAGER_ACCOUNT:
+            return{
+                ...state,
+                newManagerAccount:[action.value]
+            }
+        case UPDATE_MANAGER_DETAIL:
+            return{
+                ...state,
+                newManagerDetail:[action.value]
             }
         default:
             throw new Error('Invailid , Error reducerTemporarySaveData');
@@ -124,6 +156,51 @@ const reducerHandleChange = (state,action) => {
                 ...state,
                 searchManager:action.value,
             } 
+        case NEW_SET_FULLNAME:
+            return{
+                ...state,
+                newFullname:action.value,
+            } 
+        case NEW_SET_DATEOFBIRTH:
+            return{
+                ...state,
+                newDateofbirth:action.value,
+            } 
+        case NEW_SET_GENDER:
+            return{
+                ...state,
+                newGender:action.value,
+            } 
+        case NEW_SET_EMAIL:
+            return{
+                ...state,
+                newEmail:action.value,
+            } 
+        case NEW_SET_PHONENUMBER:
+            return{
+                ...state,
+                newPhonenumber:action.value,
+            } 
+        case NEW_SET_ADDRESS:
+            return{
+                ...state,
+                newAddress:action.value,
+            } 
+        case NEW_SET_PASSWORD:
+            return{
+                ...state,
+                newPassword:action.value,
+            } 
+        case NEW_SET_ROLENAME:
+            return{
+                ...state,
+                newRolename:action.value,
+            }
+        case NEW_SET_IMG_MANAGER:
+            return{
+                ...state,
+                newImgManager:action.value,
+            }
         default:
             throw new Error('Invailid , Error reducerHandleChange');
     }

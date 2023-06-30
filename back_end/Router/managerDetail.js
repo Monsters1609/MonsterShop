@@ -6,9 +6,9 @@ const managerDetailController = require('../Controller/managerDetailController')
 router.get('/getManagerDetail',managerDetailController.Select);
 router.get('/postManagerDetail',managerDetailController.Insert);
 // router.get('/deleteManagerDetail/:PhoneNumber',managerDetailController.Delete);
-router.get('/putManagerDetail/:IdManagerDetail',managerDetailController.Update);
+router.get('/putManagerDetail/:PhoneNumber',managerDetailController.Update);
 router.post('/postManagerDetail',managerDetailController.Insert);
 // router.delete('/deleteManagerDetail/:PhoneNumber',managerDetailController.Delete);
-router.put('/putManagerDetail/:IdManagerDetail',managerDetailController.Update);
+router.put('/putManagerDetail/:PhoneNumber',managerDetailController.Update);
 
 module.exports = router;

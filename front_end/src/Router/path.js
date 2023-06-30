@@ -13,7 +13,8 @@ import {
     Notification,
     Shop,
     TableList,
-    Update,
+    UpdateManager,
+    UpdateManagerAccount,
     UserDetail,
     UserLogin,
     UserRegister,
@@ -33,12 +34,13 @@ const publicRouter = [
     {path:'*',page:Error,title:'Error'}
 ]
 const privateRouter = [
-    {path:'/',page:Manager,title:'Manager'},
+    {path:'/Manager',page:Manager,title:'Manager'},
     {path:'/ManagerLogin',page:ManagerLogin,title:'ManagerLogin'},
     {path:'/ManagerRegister',page:ManagerRegister,title:'ManagerRegister'},
     {path:'/TableList',page:TableList,title:'TableList'},
     {path:'/Add',page:Add,title:'Add'},
-    {path:'/Update',page:Update,title:'Update'},
+    {path:'/UpdateManager',page:UpdateManager,title:'UpdateManager'},
+    {path:'/UpdateManagerAccount',page:UpdateManagerAccount,title:'UpdateManagerAccount'},
     {path:'/ManagerSetting',page:ManagerSetting,title:'ManagerSetting'},
     {path:'/ChartStatistical',page:ChartStatistical,title:'ChartStatistical'},
     {path:'/DoneTableList',page:DoneTableList,title:'DoneTableList'},

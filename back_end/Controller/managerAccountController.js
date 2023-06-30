@@ -108,7 +108,7 @@ class ManagerAccountController {
     }
     async Update(req,res,next){
         const SqlUpdate = 'UPDATE manager_account SET PhoneNumber = ?, Password = ?, RoleName = ? WHERE manager_account.Id_Manager = ?'
-        const IdManager = req.params.IdManager;
+        const IdManager = req.body.IdManager;
         const PhoneNumber = req.body.PhoneNumber;
         const Password = req.body.Password;
         const RoleName = req.body.RoleName;

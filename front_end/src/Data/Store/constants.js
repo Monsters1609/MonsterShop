@@ -4,6 +4,15 @@ import {
     CREATE_MANAGER_ROLE,
     FIND_MANAGER_ACCOUNT,
     FIND_MANAGER_DETAIL,
+    NEW_SET_ADDRESS,
+    NEW_SET_DATEOFBIRTH,
+    NEW_SET_EMAIL,
+    NEW_SET_FULLNAME,
+    NEW_SET_GENDER,
+    NEW_SET_IMG_MANAGER,
+    NEW_SET_PASSWORD,
+    NEW_SET_PHONENUMBER,
+    NEW_SET_ROLENAME,
     SEARCH_MANAGER,
     SET_ADDRESS,
     SET_DATEOFBIRTH,
@@ -13,6 +22,8 @@ import {
     SET_PASSWORD,
     SET_PHONENUMBER,
     SET_ROLENAME,
+    UPDATE_MANAGER_ACCOUNT,
+    UPDATE_MANAGER_DETAIL,
 } from "./action"
 
 const addManagerAccount = (value) => {
@@ -107,6 +118,76 @@ const findManagerDetailfunc = value => {
         value
     }
 }
+
+const updateManagerAccount = (value) =>{
+    return{
+        type:UPDATE_MANAGER_ACCOUNT,
+        value
+    }
+}
+
+const updateManagerDetail = (value) => {
+    return{
+        type:UPDATE_MANAGER_DETAIL,
+        value
+    }
+}
+
+const setNewFullName = (value) => {
+    return{
+        type:NEW_SET_FULLNAME,
+        value
+    }
+}
+
+const setNewDateOfBirth = (value) => {
+    return{
+        type:NEW_SET_DATEOFBIRTH,
+        value
+    }
+}
+const setNewGender = (value) => {
+    return{
+        type:NEW_SET_GENDER,
+        value
+    }
+}
+const setNewEmail = (value) => {
+    return{
+        type:NEW_SET_EMAIL,
+        value
+    }
+}
+const setNewPhoneNumber = (value) => {
+    return{
+        type:NEW_SET_PHONENUMBER,
+        value
+    }
+}
+const setNewAddress = (value) => {
+    return{
+        type:NEW_SET_ADDRESS,
+        value
+    }
+}
+const setNewPassword = (value) => {
+    return{
+        type:NEW_SET_PASSWORD,
+        value
+    }
+}
+const setNewRoleName = (value) => {
+    return{
+        type:NEW_SET_ROLENAME,
+        value
+    }
+}
+const setNewImgManager = (value) => {
+    return{
+        type:NEW_SET_IMG_MANAGER,
+        value
+    }
+}
 export {
     addManagerAccount,
     addManagerDetail,
@@ -122,4 +203,15 @@ export {
     searchManager,
     findManagerAccountfunc,
     findManagerDetailfunc,
+    updateManagerAccount,
+    updateManagerDetail,
+    setNewFullName,
+    setNewDateOfBirth,
+    setNewGender,
+    setNewEmail,
+    setNewPhoneNumber,
+    setNewAddress,
+    setNewPassword,
+    setNewRoleName,
+    setNewImgManager,
 }
